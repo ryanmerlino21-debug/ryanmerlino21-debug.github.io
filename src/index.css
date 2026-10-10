@@ -2,6 +2,8 @@
   --bg: #ffffff;
   --text: #1a1a1a;
   --accent: #2563eb;
+  --surface: #f1f5f9;
+  color-scheme: light;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
 }
@@ -54,4 +56,51 @@ a {
 a:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0f172a;
+  --text: #f1f5f9;
+  --accent: #7aa7ff;
+  --surface: #1e293b;
+  color-scheme: dark;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.fade-in {
+  animation: fade-in 0.8s ease both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
 }
